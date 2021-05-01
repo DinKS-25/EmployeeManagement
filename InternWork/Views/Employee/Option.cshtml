@@ -1,0 +1,13 @@
+﻿@model Login
+@{
+    ViewData["Title"] = "Options";
+}
+<div class="container">
+    <h3>Welcome @Model.Username</h3>
+    <hr />
+    <h5>choose an action that You want to perform!</h5>
+    <hr />
+    <a class="btn btn-primary" asp-controller="Employee" asp-action="ViewEmployee">view employees</a>
+    <a class="btn btn-primary" asp-controller="Employee" asp-action="AddEmployee">Add employees</a>
+</div>
+

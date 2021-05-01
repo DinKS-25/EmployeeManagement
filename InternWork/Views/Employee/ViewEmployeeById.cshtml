@@ -1,0 +1,42 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <div class="container">
+        <a class="btn btn-primary" asp-action="ViewEmployee" asp-controller="Employee">Go back</a>
+    </div>
+    <hr />
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">FatherName</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">MotherName</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Fresher</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Name</td>
+                    <td>@Model.FatherName</td>
+                    <td>@Model.MotherName</td>
+                    <td>@Model.Salary</td>
+                    <td>@Model.Address</td>
+                    <td>@Model.role</td>
+                    <td>@Model.Fresher</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a class="btn btn-primary" asp-action="Update" asp-controller="Employee" asp-route-id="@Model.EmpId">Update</a>
+    <form asp-action="DeleteEmployee" asp-controller="Employee" asp-route-id="@Model.EmpId" method="post" style="display:inline">
+        <button class="btn btn-danger float-right">Delete</button>
+    </form>
+</div>

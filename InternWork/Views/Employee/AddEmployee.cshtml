@@ -1,0 +1,73 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Form";
+}
+<div class="container">
+    <form asp-controller="Employee" asp-action="AddEmployee" method="post">
+        <input type="hidden" asp-for="EmpId" />
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input type="text" class="form-control" asp-for="Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+            @*<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>*@
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="FatherName" class="form-label">Father Name</label>
+            <input type="text" class="form-control" asp-for="FatherName">
+            <span asp-validation-for="FatherName" class="text-danger"></span>
+            @*<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>*@
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="MotherName" class="form-label">Mother Name</label>
+            <input type="text" class="form-control" asp-for="MotherName">
+            <span asp-validation-for="MotherName" class="text-danger"></span>
+            @*<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>*@
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Address">Address</label>
+            <textarea class="form-control" asp-for="Address" rows="3"></textarea>
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Salary" class="form-label">Salary</label>
+            <input type="text" class="form-control" asp-for="Salary">
+            <span asp-validation-for="Salary" class="text-danger"></span>
+            @*<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>*@
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value=true asp-for="Fresher">
+            <label class="form-check-label" asp-for="Fresher">
+                Fresher???
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value=false asp-for="Fresher">
+            <label class="form-check-label" asp-for="Fresher">
+                Not a Fresher!
+            </label>
+            <span asp-validation-for="Fresher" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="role">Role</label>
+            <select class="form-control" asp-for="role">
+                @foreach (var item in Enum.GetNames(typeof(Role)))
+                {
+                    <option value="@item">@item</option>
+                }
+            </select>
+            <span asp-validation-for="role" class="text-danger"></span>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="btn btn-danger" asp-controller="Employee" asp-action="ViewEmployee">Cancel</a>
+        </div>
+    </form>
+</div>

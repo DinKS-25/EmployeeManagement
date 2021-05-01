@@ -1,0 +1,40 @@
+﻿@model RegisterUser
+
+@section Styles {
+    <link href="@Url.Content("~/css/registerpage.css")" rel="stylesheet" type="text/css" />
+}
+@{
+    ViewData["Title"] = "Signup";
+}
+<div class="signup-form">
+    <form asp-action="Register" asp-controller="Account" method="post">
+        <h2>Register</h2>
+        <p class="hint-text">Create your account.</p>
+        @*<div class="form-group">
+                <div class="row">
+                    <div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
+                    <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+                </div>
+            </div>*@
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="username" asp-for="Username">
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" asp-for="Password">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Confirm Password" asp-for="Repassword">
+            <span asp-validation-for="Repassword" class="text-danger"></span>
+        </div>
+        @*<div class="form-group">
+                <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+            </div>*@
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg btn-block">Register</button>
+        </div>
+    </form>
+    <div class="text-center">Already have an account? <a asp-action="Login" asp-controller="Account">Log In</a></div>
+</div>
